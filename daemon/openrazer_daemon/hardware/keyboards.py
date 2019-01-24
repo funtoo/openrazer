@@ -167,6 +167,39 @@ class RazerTartarusChroma(_RazerDeviceBrightnessSuspend):
         # TODO look into saving stats in /var/run maybe
         # self.key_manager.close()
 
+class RazerTartarusV2(_RazerDeviceBrightnessSuspend):
+    """
+    Class for Razer Tartarus V2 (includes Chroma, even though not in the product name)
+    """
+    EVENT_FILE_REGEX = re.compile(r'.*Razer_Tartarus_V2(-if01)?-event-kbd')
+
+    USB_VID = 0x1532
+    USB_PID = 0x022B
+    DEDICATED_MACRO_KEYS = True
+    METHODS = ['get_device_type_keypad', 'set_breath_random_effect', 'set_breath_single_effect',
+               'set_breath_dual_effect', 'set_static_effect', 'set_spectrum_effect', 'keypad_get_profile_led_red', 'keypad_set_profile_led_red',
+               'keypad_get_profile_led_green',
+               'keypad_set_profile_led_green', 'keypad_get_profile_led_blue', 'keypad_set_profile_led_blue', 'get_macros', 'delete_macro', 'add_macro',
+               'keypad_get_mode_modifier', 'keypad_set_mode_modifier']
+
+    # TODO: These are orbweaver chroma gfx -- need ones for Tartarus.
+    RAZER_URLS = {
+        "top_img": "https://assets2.razerzone.com/images/orbweaver-chroma/370604e681b07ee0ffc2047f569e438e-orbweaver-crhoma-gallery-02.jpg",
+        "side_img": "https://assets2.razerzone.com/images/orbweaver-chroma/8def7438b6f8d4faf24c9218daa07ad0-orbweaver-crhoma-gallery-03.jpg",
+        "perspective_img": "https://assets2.razerzone.com/images/orbweaver-chroma/518c021598fd22a51a714a1b276d1e9e-orbweaver-crhoma-gallery-04.jpg"
+    }
+    
+    def __init__(self, *args, **kwargs):
+        super(RazerTartarusV2, self).__init__(*args, **kwargs)
+
+    def _close(self):
+        """
+        Close the key manager
+        """
+        super(RazerTartarusV2, self)._close()
+
+        # TODO look into saving stats in /var/run maybe
+        # self.key_manager.close()
 
 class RazerOrbweaver(_RazerDeviceBrightnessSuspend):
     """

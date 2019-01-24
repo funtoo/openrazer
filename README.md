@@ -89,6 +89,7 @@ The below devices are fully feature supported by OpenRazer which means all avail
 | Razer Orbweaver                               |  1532:0113  |
 | Razer Tartarus                                |  1532:0201  |
 | Razer Tartarus Chroma                         |  1532:0208  |
+| Razer Tartarus v2                             |  1532:022B  |
 | Razer Core                                    |  1532:0215  |
 | Razer Chroma Mug Holder                       |  1532:0F07  |
 
